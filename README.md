@@ -68,3 +68,26 @@ git merge --squash master
 git commit -m "Blender merge <N>"
 ```
 
+Adding place holders for Billboard modifier
+-------------------------------------------
+
+The next task in developing this modifier was to create place holders
+for the modifier implementation.
+My initial guide was the slightly outdated tutorial at
+http://wiki.blender.org/index.php/User:Enjalot/Creating_a_custom_modifier .
+The easiest approach is to find a modifier that is similar to the
+modifier we intend to develop and running grep on the Blender source
+tree with terms related to the modifier.
+
+The changes needed to implement a new operator are divided into
+four categories:
+
+-  modifier implementation
+-  makesdna entries (modifier data structure)
+-  makesrna entries (RNA structure, UI text, description, icon name, ...)
+-  Declaration and drawing of an icon
+-  Python bl_ui user interface code
+
+A full summary of changes can be found in the commit
+ilent2@f182cdc910c477079a434cd31186337cee29a147
+
