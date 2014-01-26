@@ -1120,6 +1120,19 @@ static void rna_def_modifier_billboard(BlenderRNA *brna)
   RNA_def_struct_ui_text(srna, "Billboard Modifier", "Billboard modifier");
   RNA_def_struct_sdna(srna, "BillboardModifierData");
   RNA_def_struct_ui_icon(srna, ICON_MOD_WIREFRAME);
+
+	prop = RNA_def_property(srna, "thickness", PROP_FLOAT, PROP_NONE);
+	RNA_def_property_ui_text(prop, "Thickness", "Thickness factor");
+	RNA_def_property_float_sdna(prop, NULL, "offset");
+	RNA_def_property_range(prop, -FLT_MAX, FLT_MAX);
+	RNA_def_property_ui_range(prop, 0.0f, 1.0f, 0.01, 4);
+	RNA_def_property_update(prop, 0, "rna_Modifier_update");
+
+	prop = RNA_def_property(srna, "object", PROP_POINTER, PROP_NONE);
+	RNA_def_property_ui_text(prop, "Reference", "Object for billboard reference");
+	RNA_def_property_pointer_sdna(prop, NULL, "object");
+	RNA_def_property_flag(prop, PROP_EDITABLE | PROP_ID_SELF_CHECK);
+	RNA_def_property_update(prop, 0, "rna_Modifier_dependency_update");
 }
 
 static void rna_def_modifier_mirror(BlenderRNA *brna)

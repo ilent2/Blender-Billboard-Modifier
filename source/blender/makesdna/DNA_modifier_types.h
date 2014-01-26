@@ -183,6 +183,8 @@ enum {
 /* Billboard Modifier */
 typedef struct BillboardModifierData {
   ModifierData modifier;
+  float offset, pad;
+	struct Object *object;
 } BillboardModifierData;
 
 /* Mask Modifier */
