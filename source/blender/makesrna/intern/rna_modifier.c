@@ -81,6 +81,7 @@ EnumPropertyItem modifier_type_items[] = {
 	{eModifierType_Subsurf, "SUBSURF", ICON_MOD_SUBSURF, "Subdivision Surface", ""},
 	{eModifierType_Triangulate, "TRIANGULATE", ICON_MOD_TRIANGULATE, "Triangulate", ""},
 	{eModifierType_Wireframe, "WIREFRAME", ICON_MOD_WIREFRAME, "Wireframe", "Generate a wireframe on the edges of a mesh"},
+  {eModifierType_Billboard, "BILLBOARD", ICON_MOD_WIREFRAME, "Billboard", "Generate 2-D billboards from 3-D geometry"},
 	{0, "", 0, N_("Deform"), ""},
 	{eModifierType_Armature, "ARMATURE", ICON_MOD_ARMATURE, "Armature", ""},
 	{eModifierType_Cast, "CAST", ICON_MOD_CAST, "Cast", ""},
@@ -158,6 +159,8 @@ static StructRNA *rna_Modifier_refine(struct PointerRNA *ptr)
 			return &RNA_CurveModifier;
 		case eModifierType_Build:
 			return &RNA_BuildModifier;
+    case eModifierType_Billboard:
+      return &RNA_BillboardModifier;
 		case eModifierType_Mirror:
 			return &RNA_MirrorModifier;
 		case eModifierType_Decimate:
@@ -1106,6 +1109,17 @@ static void rna_def_modifier_build(BlenderRNA *brna)
 	RNA_def_property_range(prop, 1, MAXFRAMEF);
 	RNA_def_property_ui_text(prop, "Seed", "Seed for random if used");
 	RNA_def_property_update(prop, 0, "rna_Modifier_update");
+}
+
+static void rna_def_modifier_billboard(BlenderRNA *brna)
+{
+  StructRNA *srna;
+  PropertyRNA *prop;
+
+  srna = RNA_def_struct(brna, "BillboardModifier", "Modifier");
+  RNA_def_struct_ui_text(srna, "Billboard Modifier", "Billboard modifier");
+  RNA_def_struct_sdna(srna, "BillboardModifierData");
+  RNA_def_struct_ui_icon(srna, ICON_MOD_WIREFRAME);
 }
 
 static void rna_def_modifier_mirror(BlenderRNA *brna)
@@ -3887,6 +3901,7 @@ void RNA_def_modifier(BlenderRNA *brna)
 	rna_def_modifier_lattice(brna);
 	rna_def_modifier_curve(brna);
 	rna_def_modifier_build(brna);
+  rna_def_modifier_billboard(brna);
 	rna_def_modifier_mirror(brna);
 	rna_def_modifier_decimate(brna);
 	rna_def_modifier_wave(brna);

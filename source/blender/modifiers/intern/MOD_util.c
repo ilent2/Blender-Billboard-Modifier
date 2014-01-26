@@ -244,6 +244,7 @@ void modifier_type_init(ModifierTypeInfo *types[])
 	INIT_TYPE(Lattice);
 	INIT_TYPE(Subsurf);
 	INIT_TYPE(Build);
+  INIT_TYPE(Billboard);
 	INIT_TYPE(Array);
 	INIT_TYPE(Mirror);
 	INIT_TYPE(EdgeSplit);

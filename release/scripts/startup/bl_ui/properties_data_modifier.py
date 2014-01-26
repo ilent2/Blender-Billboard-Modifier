@@ -168,6 +168,9 @@ class DATA_PT_modifiers(ModifierButtonsPanel, Panel):
         sub.active = md.use_random_order
         sub.prop(md, "seed")
 
+    def BILLBOARD(self, layout, ob, md):
+        layout.label("Coming Soon")
+
     def MESH_CACHE(self, layout, ob, md):
         layout.prop(md, "cache_format")
         layout.prop(md, "filepath")

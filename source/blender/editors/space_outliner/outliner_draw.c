@@ -899,6 +899,8 @@ static void tselem_draw_icon(uiBlock *block, int xmax, float x, float y, TreeSto
 						UI_icon_draw(x, y, ICON_MOD_CURVE); break;
 					case eModifierType_Build: 
 						UI_icon_draw(x, y, ICON_MOD_BUILD); break;
+					case eModifierType_Billboard:    /* TODO: Needs own icon */
+						UI_icon_draw(x, y, ICON_MOD_WIREFRAME); break;
 					case eModifierType_Mirror: 
 						UI_icon_draw(x, y, ICON_MOD_MIRROR); break;
 					case eModifierType_Decimate: 

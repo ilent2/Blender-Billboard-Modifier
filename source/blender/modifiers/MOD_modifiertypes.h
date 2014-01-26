@@ -36,6 +36,7 @@ extern ModifierTypeInfo modifierType_Subsurf;
 extern ModifierTypeInfo modifierType_Lattice;
 extern ModifierTypeInfo modifierType_Curve;
 extern ModifierTypeInfo modifierType_Build;
+extern ModifierTypeInfo modifierType_Billboard;
 extern ModifierTypeInfo modifierType_Mirror;
 extern ModifierTypeInfo modifierType_Decimate;
 extern ModifierTypeInfo modifierType_Wave;

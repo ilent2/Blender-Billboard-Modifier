@@ -48,6 +48,7 @@ set(SRC
 	intern/MOD_array.c
 	intern/MOD_bevel.c
 	intern/MOD_boolean.c
+  intern/MOD_billboard.c
 	intern/MOD_build.c
 	intern/MOD_cast.c
 	intern/MOD_cloth.c

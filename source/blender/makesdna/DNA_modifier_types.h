@@ -82,6 +82,7 @@ typedef enum ModifierType {
 	eModifierType_MeshCache         = 46,
 	eModifierType_LaplacianDeform   = 47,
 	eModifierType_Wireframe         = 48,
+  eModifierType_Billboard         = 49,
 	NUM_MODIFIER_TYPES
 } ModifierType;
 
@@ -178,6 +179,11 @@ enum {
 	MOD_BUILD_FLAG_RANDOMIZE = (1 << 0),  /* order of vertices is randomized */
 	MOD_BUILD_FLAG_REVERSE   = (1 << 1),  /* frame range is reversed, resulting in a deconstruction effect */
 };
+
+/* Billboard Modifier */
+typedef struct BillboardModifierData {
+  ModifierData modifier;
+} BillboardModifierData;
 
 /* Mask Modifier */
 typedef struct MaskModifierData {
