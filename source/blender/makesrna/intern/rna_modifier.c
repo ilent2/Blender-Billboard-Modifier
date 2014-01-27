@@ -1133,6 +1133,11 @@ static void rna_def_modifier_billboard(BlenderRNA *brna)
 	RNA_def_property_pointer_sdna(prop, NULL, "object");
 	RNA_def_property_flag(prop, PROP_EDITABLE | PROP_ID_SELF_CHECK);
 	RNA_def_property_update(prop, 0, "rna_Modifier_dependency_update");
+
+	prop = RNA_def_property(srna, "flatten", PROP_BOOLEAN, PROP_NONE);
+	RNA_def_property_ui_text(prop, "Flatten", "Flatten geometry perpendicular to reference");
+	RNA_def_property_boolean_sdna(prop, NULL, "flag", MOD_BILLBOARD_FLATTEN);
+	RNA_def_property_update(prop, 0, "rna_Modifier_update");
 }
 
 static void rna_def_modifier_mirror(BlenderRNA *brna)

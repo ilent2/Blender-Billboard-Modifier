@@ -82,6 +82,17 @@ static DerivedMesh *BillboardModifier_do(BillboardModifierData *bmd,
     madd_v3_v3fl(verts[2]->co, shift_axis, 0.5*bmd->offset);
     madd_v3_v3fl(verts[3]->co, shift_axis, 0.5*bmd->offset);
 
+    if ((bmd->flag & MOD_BILLBOARD_FLATTEN) != 0) {
+      madd_v3_v3fl(verts[0]->co, screen_axis,
+          -dot_v3v3(screen_axis, verts[0]->co));
+      madd_v3_v3fl(verts[1]->co, screen_axis,
+          -dot_v3v3(screen_axis, verts[1]->co));
+      madd_v3_v3fl(verts[2]->co, screen_axis,
+          -dot_v3v3(screen_axis, verts[2]->co));
+      madd_v3_v3fl(verts[3]->co, screen_axis,
+          -dot_v3v3(screen_axis, verts[3]->co));
+    }
+
     BM_elem_flag_disable(verts[0], BM_ELEM_TAG);
     BM_elem_flag_disable(verts[1], BM_ELEM_TAG);
     BM_elem_flag_disable(verts[2], BM_ELEM_TAG);

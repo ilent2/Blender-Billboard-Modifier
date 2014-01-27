@@ -171,8 +171,9 @@ class DATA_PT_modifiers(ModifierButtonsPanel, Panel):
     def BILLBOARD(self, layout, ob, md):
 
         layout.label("Under Development")
-        layout.prop(md, "thickness", text="Thickness")
-        layout.prop(md, "object", text="Reference")
+        layout.prop(md, "thickness")
+        layout.prop(md, "object")
+        layout.prop(md, "flatten")
 
     def MESH_CACHE(self, layout, ob, md):
         layout.prop(md, "cache_format")
